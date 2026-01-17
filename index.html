@@ -31,15 +31,17 @@
   <main>
     <section class="video-hero full" aria-label="Brand film">
       <div class="video-frame">
-        <iframe
+        <video
           id="hero-video"
-          src="https://www.youtube-nocookie.com/embed/zIKAn8yDkpA?autoplay=1&mute=1&controls=0&loop=1&playlist=zIKAn8yDkpA&modestbranding=1&rel=0&playsinline=1&showinfo=0&enablejsapi=1"
-          title="Quantum Motors Middle East film"
-          frameborder="0"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen
-          aria-hidden="true">
-        </iframe>
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto">
+          <source src="Video/YTDown.com_YouTube_New-Huawei-Maextro-S800-Luxury-Sedan-Int_Media_wlaZWRXgB_I_001_1080p.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
       <div class="video-controls">
         <button class="nav-btn" id="video-prev" aria-label="Previous video">&#x2190;</button>

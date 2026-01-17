@@ -388,7 +388,8 @@ img {
   pointer-events: none;
 }
 
-.video-frame iframe {
+.video-frame iframe,
+.video-frame video.hero-video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -396,6 +397,7 @@ img {
   border: none;
   pointer-events: none;
   filter: saturate(1.05) contrast(1.05);
+  object-fit: cover;
 }
 
 .video-controls {
