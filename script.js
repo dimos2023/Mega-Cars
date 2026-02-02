@@ -1,8 +1,15 @@
 const videos = [
   {
-    id: 'local',
-    title: 'Quantum Motors feature film',
-    src: 'Video/YTDown.com_YouTube_New-Huawei-Maextro-S800-Luxury-Sedan-Int_Media_wlaZWRXgB_I_001_1080p.mp4'
+    id: 'jykAufMNHYY',
+    title: 'Quantum Motors feature film'
+  },
+  {
+    id: 'wlaZWRXgB_I',
+    title: 'Quantum Motors performance story'
+  },
+  {
+    id: 'zIKAn8yDkpA',
+    title: 'Quantum Motors Middle East film'
   }
 ];
 
@@ -208,18 +215,9 @@ const renderVideo = (index) => {
   videoIndex = (index + videos.length) % videos.length;
   const video = videos[videoIndex];
   if (!videoFrame) return;
-  if (videoFrame.tagName === 'IFRAME') {
-    const src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${video.id}&modestbranding=1&rel=0&playsinline=1&showinfo=0&enablejsapi=1`;
-    videoFrame.setAttribute('src', src);
-    videoFrame.setAttribute('title', video.title);
-  } else {
-    videoFrame.setAttribute('src', video.src);
-    videoFrame.removeAttribute('controls');
-    videoFrame.setAttribute('muted', 'true');
-    videoFrame.setAttribute('playsinline', 'true');
-    videoFrame.setAttribute('loop', 'true');
-    videoFrame.play().catch(() => {});
-  }
+  const src = `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1&mute=1&controls=0&loop=1&playlist=${video.id}&modestbranding=1&rel=0&playsinline=1&showinfo=0&enablejsapi=1`;
+  videoFrame.setAttribute('src', src);
+  videoFrame.setAttribute('title', video.title);
   if (videoDots) {
     videoDots.querySelectorAll('.dot').forEach((dot, idx) => {
       dot.classList.toggle('is-active', idx === videoIndex);
