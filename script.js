@@ -20,7 +20,7 @@ const models = [
     tagline: 'Flagship electric sedan with grand-touring comfort.',
     blurb: 'Long-range battery, lounge-grade cabin, and adaptive air ride built for the region.',
     price: 'Price on request',
-    heroImage: 'Image/MAEXTRO%20S800/1.png',
+    heroImage: 'Image/MAEXTRO%20S800/2.png',
     cardImage: 'Image/MAEXTRO%20S800/2.png',
     detailLink: 'maextro-s800.html',
     gallery: [
@@ -119,6 +119,17 @@ const heroPrev = document.getElementById('hero-prev');
 const heroNext = document.getElementById('hero-next');
 const modelGrid = document.getElementById('model-grid');
 const pageBackdrop = document.getElementById('page-backdrop');
+const hasHeroSection =
+  heroBackdrop &&
+  heroTitle &&
+  heroCopy &&
+  heroStats &&
+  heroDots &&
+  heroConfigure &&
+  heroDrive &&
+  heroPrev &&
+  heroNext;
+const hasModelGrid = Boolean(modelGrid);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const videoFrame = document.getElementById('hero-video');
 const videoDots = document.getElementById('video-dots');
@@ -238,13 +249,15 @@ const buildVideoDots = () => {
   });
 };
 
-heroPrev.addEventListener('click', () => {
-  renderHero(heroIndex - 1);
-});
+if (hasHeroSection) {
+  heroPrev.addEventListener('click', () => {
+    renderHero(heroIndex - 1);
+  });
 
-heroNext.addEventListener('click', () => {
-  renderHero(heroIndex + 1);
-});
+  heroNext.addEventListener('click', () => {
+    renderHero(heroIndex + 1);
+  });
+}
 
 const menuToggle = document.querySelector('.menu-toggle');
 if (menuToggle) {
@@ -269,10 +282,16 @@ const startBackdropRotation = () => {
   }
 };
 
-buildHeroDots();
-buildModelCards();
-renderHero(heroIndex);
-startTimer();
+if (hasHeroSection) {
+  buildHeroDots();
+  renderHero(heroIndex);
+  startTimer();
+}
+
+if (hasModelGrid) {
+  buildModelCards();
+}
+
 buildVideoDots();
 renderVideo(videoIndex);
 startBackdropRotation();

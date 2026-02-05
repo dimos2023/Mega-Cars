@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey | Quantum Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+  <script defer src="chatbot.js"></script>
+</head>
+<body>
+  <div class="page-backdrop" id="page-backdrop" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="logo" aria-label="Quantum Motors">QUANTUM MOTORS</div>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html#models">Models</a>
+      <a href="index.html#tools">Shopping tools</a>
+      <a href="index.html#stories">Quantum world</a>
+    </nav>
+    <div class="header-actions">
+      <a class="pill-link" href="index.html#tools">Find a dealer</a>
+      <button class="menu-toggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <section class="section-shell form-hero">
+      <p class="eyebrow">Step 2</p>
+      <h1>Short survey to tailor your purchase</h1>
+      <p class="lede">Reaching this page means you are a standout, serious client. Answer accurately so we confirm you're ready for a 10M+ EGP purchase and prepare a VIP experience.</p>
+      <div class="intro-actions">
+        <a class="btn ghost" href="register.html">&larr; Back to registration</a>
+        <a class="btn primary" href="index.html#models">View models</a>
+      </div>
+    </section>
+
+    <section class="section-shell form-layout">
+      <form class="form-card" id="survey-form" novalidate>
+        <div>
+          <p class="eyebrow">Survey</p>
+          <h3>Usage & delivery preferences</h3>
+          <p class="muted">Answer a few quick questions so our advisors can tailor the offer.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label for="decision-maker">Decision authority</label>
+            <div class="option-chips">
+              <label class="option-chip"><input type="radio" name="decision-maker" value="Final decision maker / owner" required> Owner / final decision maker</label>
+              <label class="option-chip"><input type="radio" name="decision-maker" value="Board-level approver"> Board-level approver</label>
+              <label class="option-chip"><input type="radio" name="decision-maker" value="Advisor only"> Advisor / not final</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="timeline">Purchase timeline</label>
+            <select id="timeline" name="timeline" class="input-control" required>
+              <option value="" disabled selected>Select timeline</option>
+              <option value="Immediate (0-30 days)">Immediate (0-30 days)</option>
+              <option value="Soon (1-3 months)">Soon (1-3 months)</option>
+              <option value="This year (3-6 months)">This year (3-6 months)</option>
+              <option value="Exploring (6+ months)">Exploring (6+ months)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="budget">Per-vehicle budget</label>
+            <select id="budget" name="budget" class="input-control" required>
+              <option value="" disabled selected>Select a range</option>
+              <option value="Up to USD 150k">Up to USD 150k</option>
+              <option value="USD 150k - 250k">USD 150k - 250k</option>
+              <option value="USD 250k - 400k">USD 250k - 400k</option>
+              <option value="Above USD 400k">Above USD 400k</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="units">How many vehicles are you securing?</label>
+            <select id="units" name="units" class="input-control" required>
+              <option value="" disabled selected>Select quantity</option>
+              <option value="Flagship single vehicle (>=10M EGP)">1 flagship vehicle (>=10M EGP)</option>
+              <option value="2-3 units or more">2-3 units</option>
+              <option value="Fleet 5+ vehicles">Fleet 5+ vehicles</option>
+              <option value="Just exploring ideas">Just exploring ideas</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="funding">Payment readiness</label>
+            <select id="funding" name="funding" class="input-control" required>
+              <option value="" disabled selected>Select readiness</option>
+              <option value="Cash ready / liquid">Cash ready / liquid</option>
+              <option value="Bank/finance approval secured">Bank/finance approval secured</option>
+              <option value="Awaiting approval">Awaiting approval</option>
+              <option value="Still exploring">Still exploring</option>
+            </select>
+          </div>
+          <div class="field span-2">
+            <label>Vehicle use cases</label>
+            <div class="option-chips">
+              <label class="option-chip"><input type="checkbox" name="use-case" value="Daily commute"> Daily commute</label>
+              <label class="option-chip"><input type="checkbox" name="use-case" value="Business / executive"> Business / executive</label>
+              <label class="option-chip"><input type="checkbox" name="use-case" value="Family / chauffeur"> Family / chauffeur</label>
+              <label class="option-chip"><input type="checkbox" name="use-case" value="Performance / track"> Performance / track</label>
+              <label class="option-chip"><input type="checkbox" name="use-case" value="Off-road / desert"> Off-road / desert</label>
+            </div>
+          </div>
+          <div class="field span-2">
+            <label>Services you need</label>
+            <div class="option-chips">
+              <label class="option-chip"><input type="checkbox" name="services" value="Test drive booking"> Test drive booking</label>
+              <label class="option-chip"><input type="checkbox" name="services" value="Financing guidance"> Financing guidance</label>
+              <label class="option-chip"><input type="checkbox" name="services" value="Insurance support"> Insurance support</label>
+              <label class="option-chip"><input type="checkbox" name="services" value="Home/office charging install"> Home/office charging install</label>
+              <label class="option-chip"><input type="checkbox" name="services" value="Fleet / corporate offer"> Fleet / corporate offer</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="delivery-city">Preferred delivery city</label>
+            <input id="delivery-city" name="delivery-city" type="text" class="input-control" placeholder="City for delivery or collection" required>
+          </div>
+          <div class="field">
+            <label for="contact-channel">Preferred contact channel</label>
+            <select id="contact-channel" name="contact-channel" class="input-control" required>
+              <option value="" disabled selected>Select a channel</option>
+              <option value="Phone call">Phone call</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Email">Email</option>
+              <option value="In-person at Centre">In-person at Centre</option>
+            </select>
+          </div>
+          <div class="field span-2">
+            <label for="comments">Anything else we should know?</label>
+            <textarea id="comments" name="comments" class="input-control" placeholder="Scheduling windows, special configurations, or driver requirements"></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <p class="muted">You need at least 80% aligned answers to continue to scheduling.</p>
+          <button type="submit" class="btn primary">Submit survey</button>
+        </div>
+        <div id="survey-message" class="form-alert" hidden></div>
+      </form>
+
+      <aside class="info-card">
+        <p class="eyebrow">After you submit</p>
+        <h3>We prepare your offer</h3>
+        <p class="muted">Your advisor will use these answers to tailor pricing, payment options, and delivery timing.</p>
+        <ul>
+          <li>We hold your preferred model slot while we confirm paperwork.</li>
+          <li>We coordinate a test drive in your chosen city if requested.</li>
+          <li>We share financing/lease pathways that match your timeline.</li>
+        </ul>
+        <p class="muted">Questions? <a class="text-link" href="mailto:hello@quantum-motors.example">Email our team</a>.</p>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <p class="eyebrow">Stay ahead</p>
+        <h3>Get the latest from Quantum Motors Middle East</h3>
+      </div>
+      <a class="btn ghost" href="index.html#tools">Subscribe</a>
+    </div>
+    <div class="footer-columns">
+      <div>
+        <h4>Models</h4>
+        <ul>
+          <li><a href="index.html#models">MAEXTRO S800</a></li>
+          <li><a href="index.html#models">YANGWANG U9</a></li>
+          <li><a href="index.html#models">YANGWANG U8L</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shopping tools</h4>
+        <ul>
+          <li><a href="index.html#tools">Build & price</a></li>
+          <li><a href="index.html#tools">Compare</a></li>
+          <li><a href="index.html#tools">Test drive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Experience</h4>
+        <ul>
+          <li><a href="index.html#stories">Events</a></li>
+          <li><a href="index.html#stories">Quantum Centres</a></li>
+          <li><a href="index.html#stories">Owner support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="logo small">QUANTUM MOTORS</div>
+      <p class="muted">&copy; 2026 Quantum Motors Middle East. For concept and demonstration purposes.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('survey-form');
+      const message = document.getElementById('survey-message');
+      if (!form || !message) return;
+
+      const redirectUrl = 'meeting.html';
+      const accepted = {
+        timeline: ['Immediate (0-30 days)', 'Soon (1-3 months)', 'This year (3-6 months)'],
+        budget: ['USD 250k - 400k', 'Above USD 400k'],
+        funding: ['Cash ready / liquid', 'Bank/finance approval secured'],
+        decision: ['Final decision maker / owner', 'Board-level approver'],
+        units: ['Flagship single vehicle (>=10M EGP)', '2-3 units or more', 'Fleet 5+ vehicles']
+      };
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const total = 5;
+        let score = 0;
+
+        if (accepted.timeline.includes(form.timeline.value)) score++;
+        if (accepted.budget.includes(form.budget.value)) score++;
+        if (accepted.funding.includes(form.funding.value)) score++;
+        if (accepted.units.includes(form.units.value)) score++;
+
+        const decision = form.querySelector('input[name="decision-maker"]:checked');
+        if (decision && accepted.decision.includes(decision.value)) score++;
+
+        const percent = Math.round((score / total) * 100);
+        const pass = percent >= 80;
+
+        message.hidden = false;
+        message.className = 'form-alert ' + (pass ? 'success' : 'error');
+        message.textContent = pass
+          ? `Confirmed. You scored ${percent}%. We will move you to meeting scheduling now.`
+          : `Current answers scored ${percent}%. Adjust your selections to reach 80% and confirm seriousness.`;
+
+        if (pass) {
+          setTimeout(() => {
+            window.location.href = redirectUrl;
+          }, 700);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
+
+

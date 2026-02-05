@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule Meeting | Quantum Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+  <script defer src="chatbot.js"></script>
+</head>
+<body>
+  <div class="page-backdrop" id="page-backdrop" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="logo" aria-label="Quantum Motors">QUANTUM MOTORS</div>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html#models">Models</a>
+      <a href="index.html#tools">Shopping tools</a>
+      <a href="index.html#stories">Quantum world</a>
+    </nav>
+    <div class="header-actions">
+      <a class="pill-link" href="index.html#tools">Find a dealer</a>
+      <button class="menu-toggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <section class="section-shell form-hero">
+      <p class="eyebrow">Step 3</p>
+      <h1>Pick your meeting slot</h1>
+      <p class="lede">Choose how you want to meet: at our Centre, at your company, or virtually. We'll bring the right executive team for your investment level.</p>
+      <div class="intro-actions">
+        <a class="btn ghost" href="survey.html">&larr; Back to survey</a>
+        <a class="btn primary" href="index.html#models">View models</a>
+      </div>
+    </section>
+
+    <section class="section-shell form-layout">
+      <form class="form-card" id="meeting-form">
+        <div>
+          <p class="eyebrow">Scheduling</p>
+          <h3>Meeting preferences</h3>
+          <p class="muted">Choose how and when you want to meet to finalize your Quantum Motors purchase.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Meeting type</label>
+            <div class="option-chips">
+              <label class="option-chip"><input type="radio" name="meeting-type" value="Quantum Centre" required> At Quantum Centre</label>
+              <label class="option-chip"><input type="radio" name="meeting-type" value="At your company"> At your company</label>
+              <label class="option-chip"><input type="radio" name="meeting-type" value="Virtual"> Virtual (video)</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="meeting-city">City / location</label>
+            <input id="meeting-city" name="meeting-city" type="text" class="input-control" placeholder="City or company site" required>
+          </div>
+          <div class="field">
+            <label for="meeting-date">Preferred date</label>
+            <input id="meeting-date" name="meeting-date" type="date" class="input-control" required>
+          </div>
+          <div class="field">
+            <label for="meeting-time">Preferred time</label>
+            <input id="meeting-time" name="meeting-time" type="time" class="input-control" required>
+          </div>
+          <div class="field">
+            <label for="attendees">Attendees</label>
+            <input id="attendees" name="attendees" type="text" class="input-control" placeholder="e.g., CEO + CFO + Fleet lead" required>
+          </div>
+          <div class="field">
+            <label for="contact-channel">Contact channel to confirm</label>
+            <select id="contact-channel" name="contact-channel" class="input-control" required>
+              <option value="" disabled selected>Select a channel</option>
+              <option value="Phone call">Phone call</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Email">Email</option>
+            </select>
+          </div>
+          <div class="field span-2">
+            <label for="meeting-notes">On-site details (if at your company)</label>
+            <textarea id="meeting-notes" name="meeting-notes" class="input-control" placeholder="Gate pass, parking, required safety gear, meeting room details"></textarea>
+          </div>
+        </div>
+        <div class="form-footer">
+          <p class="muted">We'll confirm your requested slot within business hours.</p>
+          <button type="submit" class="btn primary">Confirm meeting</button>
+        </div>
+        <div id="meeting-message" class="form-alert" hidden></div>
+      </form>
+
+      <aside class="info-card">
+        <p class="eyebrow">What we prepare</p>
+        <h3>Executive session</h3>
+        <p class="muted">Spec sheets, payment pathways, and delivery dates for MAEXTRO S800, YANGWANG U9, or YANGWANG U8L.</p>
+        <ul>
+          <li>Test-drive scheduling where available.</li>
+          <li>Finance / lease options aligned to your timeline.</li>
+          <li>Fleet and VIP delivery services for high-value orders.</li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div>
+        <p class="eyebrow">Stay ahead</p>
+        <h3>Get the latest from Quantum Motors Middle East</h3>
+      </div>
+      <a class="btn ghost" href="register.html">Subscribe</a>
+    </div>
+    <div class="footer-columns">
+      <div>
+        <h4>Models</h4>
+        <ul>
+          <li><a href="index.html#models">MAEXTRO S800</a></li>
+          <li><a href="index.html#models">YANGWANG U9</a></li>
+          <li><a href="index.html#models">YANGWANG U8L</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Shopping tools</h4>
+        <ul>
+          <li><a href="index.html#tools">Build & price</a></li>
+          <li><a href="index.html#tools">Compare</a></li>
+          <li><a href="index.html#tools">Test drive</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Experience</h4>
+        <ul>
+          <li><a href="index.html#stories">Events</a></li>
+          <li><a href="index.html#stories">Quantum Centres</a></li>
+          <li><a href="index.html#stories">Owner support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="logo small">QUANTUM MOTORS</div>
+      <p class="muted">&copy; 2026 Quantum Motors Middle East. For concept and demonstration purposes.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+            const form = document.getElementById('meeting-form');
+      const message = document.getElementById('meeting-message');
+      if (!form || !message) return;
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const requiredFields = ['meeting-city', 'meeting-date', 'meeting-time', 'attendees', 'contact-channel'];
+        const allFilled = requiredFields.every((id) => {
+          const el = form.querySelector('#' + id);
+          return el && el.value.trim();
+        });
+        const typeChecked = form.querySelector('input[name="meeting-type"]:checked');
+
+        if (!allFilled || !typeChecked) {
+          message.hidden = false;
+          message.className = 'form-alert error';
+          message.textContent = 'Please complete all fields and select a meeting type.';
+          return;
+        }
+
+        message.hidden = false;
+        message.className = 'form-alert success';
+        message.textContent = 'Request received. We will confirm shortly during business hours.';
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
+
