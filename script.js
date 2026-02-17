@@ -4,10 +4,6 @@ const videos = [
     title: 'Quantum Motors feature film'
   },
   {
-    id: 'wlaZWRXgB_I',
-    title: 'Quantum Motors performance story'
-  },
-  {
     id: 'zIKAn8yDkpA',
     title: 'Quantum Motors Middle East film'
   }
@@ -19,7 +15,7 @@ const models = [
     name: 'MAEXTRO S800',
     tagline: 'Flagship electric sedan with grand-touring comfort.',
     blurb: 'Long-range battery, lounge-grade cabin, and adaptive air ride built for the region.',
-    price: 'Price on request',
+    price: '0',
     heroImage: 'Image/MAEXTRO%20S800/2.png',
     cardImage: 'Image/MAEXTRO%20S800/2.png',
     detailLink: 'maextro-s800.html',
@@ -44,12 +40,12 @@ const models = [
       'Image/MAEXTRO%20S800/20.png'
     ],
     buildLink: '#configure-s800',
-    driveLink: '#test-drive-s800',
+    driveLink: 'testdrive.html?id=maextro-s800',
     stats: [
       { label: '0-100 km/h', value: '3.4 s' },
       { label: 'Range', value: 'Up to 750 km' },
       { label: 'Drive', value: 'AWD' },
-      { label: 'From', value: 'Price on request' }
+      { label: 'From', value: '0' }
     ]
   },
   {
@@ -57,7 +53,7 @@ const models = [
     name: 'YANGWANG U9',
     tagline: 'Electric hypercar with four-motor torque vectoring.',
     blurb: 'Track-focused aero, instant launches, and precision control for every corner.',
-    price: 'From USD 290,000',
+    price: '0',
     heroImage: 'Image/YANGWANG%20U9/1.png',
     cardImage: 'Image/YANGWANG%20U9/2.png',
     detailLink: 'yangwang-u9.html',
@@ -69,12 +65,12 @@ const models = [
       'Image/YANGWANG%20U9/7.png'
     ],
     buildLink: '#configure-u9',
-    driveLink: '#test-drive-u9',
+    driveLink: 'testdrive.html?id=yangwang-u9',
     stats: [
       { label: '0-100 km/h', value: '2.0 s' },
       { label: 'Power', value: '1,300 hp (est.)' },
       { label: 'Drive', value: 'Quad-motor AWD' },
-      { label: 'From', value: 'USD 290,000' }
+      { label: 'From', value: '0' }
     ]
   },
   {
@@ -82,7 +78,7 @@ const models = [
     name: 'YANGWANG U8L',
     tagline: 'Luxury off-road SUV with electric drive and range extender.',
     blurb: 'Seven-seat space, intelligent terrain modes, and water-fording confidence.',
-    price: 'From USD 170,000',
+    price: '0',
     heroImage: 'Image/YANGWANG%20U8L/1.png',
     cardImage: 'Image/YANGWANG%20U8L/2.png',
     detailLink: 'yangwang-u8l.html',
@@ -98,12 +94,12 @@ const models = [
       'Image/YANGWANG%20U8L/11.png'
     ],
     buildLink: '#configure-u8l',
-    driveLink: '#test-drive-u8l',
+    driveLink: 'testdrive.html?id=yangwang-u8l',
     stats: [
       { label: '0-100 km/h', value: '3.6 s' },
       { label: 'Drive', value: 'E-AWD' },
       { label: 'Seating', value: 'Up to 7' },
-      { label: 'From', value: 'USD 170,000' }
+      { label: 'From', value: '0' }
     ]
   }
 ];
@@ -300,3 +296,148 @@ if (videoPrev && videoNext) {
   videoPrev.addEventListener('click', () => renderVideo(videoIndex - 1));
   videoNext.addEventListener('click', () => renderVideo(videoIndex + 1));
 }
+
+// User badge and privet link
+const enhanceUserNav = () => {
+  const email = sessionStorage.getItem('qmUserEmail');
+  if (!email) return;
+  const name = email.split('@')[0];
+  const headerActions = document.querySelector('.header-actions');
+  if (headerActions && !headerActions.querySelector('.user-chip')) {
+    const chip = document.createElement('span');
+    chip.className = 'user-chip';
+    chip.textContent = `Welcome, ${name}`;
+    const menu = document.createElement('div');
+    menu.className = 'user-menu';
+    const signOut = document.createElement('a');
+    signOut.href = '#';
+    signOut.textContent = 'Sign out';
+    signOut.addEventListener('click', (e) => {
+      e.preventDefault();
+      sessionStorage.removeItem('qmUserEmail');
+      document.querySelectorAll('.user-chip').forEach((el) => el.remove());
+      document.querySelectorAll('.user-menu').forEach((el) => el.remove());
+      document.querySelectorAll('.nav-privet').forEach((el) => el.remove());
+      document.querySelectorAll('a[href*="login"], a[href*="register"], .subscribe-cta').forEach((el) => {
+        el.style.display = '';
+      });
+    });
+    menu.appendChild(signOut);
+    chip.appendChild(menu);
+    chip.addEventListener('click', () => {
+      const isOpen = menu.style.display === 'block';
+      document.querySelectorAll('.user-menu').forEach((m) => (m.style.display = 'none'));
+      menu.style.display = isOpen ? 'none' : 'block';
+    });
+    document.addEventListener('click', (e) => {
+      if (!chip.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+    headerActions.prepend(chip);
+  }
+  document.querySelectorAll('.primary-nav').forEach((nav) => {
+    if (!nav.querySelector('.nav-privet')) {
+      const link = document.createElement('a');
+      link.href = 'privet-space.html';
+      link.className = 'nav-privet';
+      link.textContent = 'Private Space';
+      nav.prepend(link);
+    }
+  });
+
+  // Hide auth/register buttons when signed in
+  document.querySelectorAll('a[href*="login"], a[href*="register"], .subscribe-cta').forEach((el) => {
+    el.style.display = 'none';
+  });
+};
+
+window.addEventListener('DOMContentLoaded', enhanceUserNav);
+
+// Promo modal after delay
+const createPromoModal = () => {
+  if (document.getElementById('qm-promo-backdrop')) return;
+
+  const backdrop = document.createElement('div');
+  backdrop.id = 'qm-promo-backdrop';
+  backdrop.className = 'promo-backdrop';
+
+  const modal = document.createElement('div');
+  modal.className = 'promo-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.setAttribute('aria-labelledby', 'promo-title');
+  modal.setAttribute('aria-describedby', 'promo-copy');
+
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'promo-close';
+  closeBtn.setAttribute('aria-label', 'إغلاق العرض');
+  closeBtn.textContent = '×';
+
+  const eyebrow = document.createElement('p');
+  eyebrow.className = 'eyebrow';
+  eyebrow.textContent = 'EXCLUSIVE OFFER';
+
+  const title = document.createElement('h3');
+  title.id = 'promo-title';
+  title.textContent = 'QUANTUM MOTORS';
+
+  const copy = document.createElement('p');
+  copy.id = 'promo-copy';
+  copy.className = 'promo-copy';
+  copy.textContent = 'Order your car now and unlock exclusive offers for the first 5 buyers only.';
+
+  const actions = document.createElement('div');
+  actions.className = 'promo-actions';
+
+  const cta = document.createElement('a');
+  cta.href = 'register.html';
+  cta.className = 'btn primary';
+  cta.textContent = 'Register now';
+
+  const dismiss = document.createElement('button');
+  dismiss.type = 'button';
+  dismiss.className = 'btn ghost';
+  dismiss.textContent = 'Exit';
+
+  actions.append(cta, dismiss);
+  modal.append(closeBtn, eyebrow, title, copy, actions);
+  backdrop.appendChild(modal);
+  document.body.appendChild(backdrop);
+
+  const hide = () => {
+    backdrop.classList.remove('is-open');
+    setTimeout(() => backdrop.remove(), 220);
+  };
+
+  closeBtn.addEventListener('click', hide);
+  dismiss.addEventListener('click', hide);
+  backdrop.addEventListener('click', (e) => {
+    if (e.target === backdrop) hide();
+  });
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+  const path = window.location.pathname.toLowerCase();
+  const isHome =
+    path.endsWith('index.html') ||
+    path === '/' ||
+    path === '' ||
+    path.endsWith('/index');
+  if (!isHome) return;
+  setTimeout(() => {
+    createPromoModal();
+    requestAnimationFrame(() => {
+      const backdrop = document.getElementById('qm-promo-backdrop');
+      if (backdrop) {
+        backdrop.classList.add('is-open');
+      } else {
+        // fallback: ensure visible if creation was delayed
+        setTimeout(() => {
+          const again = document.getElementById('qm-promo-backdrop');
+          if (again) again.classList.add('is-open');
+        }, 30);
+      }
+    });
+  }, 5000);
+});

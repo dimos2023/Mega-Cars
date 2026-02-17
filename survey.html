@@ -15,6 +15,7 @@
   <header class="site-header">
     <div class="logo" aria-label="Quantum Motors">QUANTUM MOTORS</div>
     <nav class="primary-nav" aria-label="Primary">
+      <a href="about.html">About</a>
       <a href="index.html#models">Models</a>
       <a href="index.html#tools">Shopping tools</a>
       <a href="index.html#stories">Quantum world</a>
@@ -202,7 +203,11 @@
       const message = document.getElementById('survey-message');
       if (!form || !message) return;
 
-      const redirectUrl = 'meeting.html';
+      const params = new URLSearchParams(window.location.search);
+      const desiredModel = params.get('desired-model');
+      const redirectUrl = desiredModel
+        ? `privet-space.html?model=${encodeURIComponent(desiredModel)}`
+        : 'privet-space.html';
       const accepted = {
         timeline: ['Immediate (0-30 days)', 'Soon (1-3 months)', 'This year (3-6 months)'],
         budget: ['USD 250k - 400k', 'Above USD 400k'],

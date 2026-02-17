@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Test Drive | Quantum Motors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="testdrive.css">
+</head>
+<body>
+  <header class="td-header">
+    <div class="td-shell td-topbar">
+      <a class="td-back" href="index.html">&#8592; Back to models</a>
+      <div class="td-logo">QUANTUM MOTORS</div>
+      <a class="btn primary" href="register.html">Register now</a>
+    </div>
+  </header>
+
+  <main class="td-shell">
+    <div class="td-layout">
+      <div class="td-viewer" id="viewer">
+        <div class="td-stage" id="stage">
+          <img id="hero-frame" src="" alt="Model view">
+          <div class="td-overlay">
+            <span id="frame-hint">Click & drag or move cursor to rotate</span>
+            <button class="td-play" id="play-toggle" aria-label="Toggle animation">▶</button>
+          </div>
+        </div>
+        <div class="td-thumb-row" id="thumb-row"></div>
+      </div>
+
+      <aside class="td-panel" id="panel">
+        <p class="eyebrow">Interactive 3D preview</p>
+        <h1 id="model-name">Model</h1>
+        <p class="td-lede" id="model-copy"></p>
+        <div class="td-specs" id="model-stats"></div>
+        <div class="td-actions">
+          <a class="btn primary" href="register.html">Book test drive</a>
+          <a class="btn ghost" id="open-detail" href="#">Open detail</a>
+        </div>
+        <div class="td-switch">
+          <button class="nav-btn" id="prev-model" aria-label="Previous model">&#x2190;</button>
+          <span id="model-index"></span>
+          <button class="nav-btn" id="next-model" aria-label="Next model">&#x2192;</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="testdrive.js"></script>
+</body>
+</html>

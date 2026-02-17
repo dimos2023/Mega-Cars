@@ -15,6 +15,7 @@
   <header class="site-header">
     <div class="logo" aria-label="Quantum Motors">QUANTUM MOTORS</div>
     <nav class="primary-nav" aria-label="Primary">
+      <a href="about.html">About</a>
       <a href="index.html#models">Models</a>
       <a href="index.html#tools">Shopping tools</a>
       <a href="index.html#stories">Quantum world</a>
@@ -50,6 +51,7 @@
           <div class="field">
             <label for="email">Email</label>
             <input id="email" name="email" type="email" class="input-control" placeholder="name@example.com" required>
+            <div id="email-error" class="form-alert error" hidden>Please use your company email (no Gmail, Outlook, Yahoo, etc.).</div>
           </div>
           <div class="field">
             <label for="phone">Phone number</label>
@@ -63,21 +65,33 @@
             <label for="company">Company name</label>
             <input id="company" name="company" type="text" class="input-control" placeholder="Your company" required>
           </div>
-          <div class="field">
-            <label for="crn">Commercial register number</label>
-            <input id="crn" name="crn" type="text" class="input-control" placeholder="Trade license / CR number" required>
-          </div>
           <div class="field span-2">
             <label for="address">Detailed address</label>
             <textarea id="address" name="address" class="input-control" placeholder="Building, street, city, country" required></textarea>
           </div>
           <div class="field">
             <label for="current-type">Current vehicle type</label>
-            <input id="current-type" name="current-type" type="text" class="input-control" placeholder="SUV, sedan, fleet van" required>
+            <select id="current-type" name="current-type" class="input-control" required>
+              <option value="" disabled selected>Select a type</option>
+              <option value="Sedan">Sedan</option>
+              <option value="SUV">SUV</option>
+              <option value="Coupe / Hypercar">Coupe / Hypercar</option>
+              <option value="Luxury MPV / Van">Luxury MPV / Van</option>
+              <option value="Fleet / Commercial">Fleet / Commercial</option>
+            </select>
           </div>
           <div class="field">
             <label for="current-brand">Current vehicle brand</label>
-            <input id="current-brand" name="current-brand" type="text" class="input-control" placeholder="Current brand/manufacturer" required>
+            <select id="current-brand" name="current-brand" class="input-control" required>
+              <option value="" disabled selected>Select a brand</option>
+              <option value="Mercedes-Benz">Mercedes-Benz</option>
+              <option value="BMW">BMW</option>
+              <option value="Audi">Audi</option>
+              <option value="Porsche">Porsche</option>
+              <option value="Range Rover">Range Rover</option>
+              <option value="Lexus">Lexus</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div class="field">
             <label for="desired-model">Desired Quantum Motors model</label>
@@ -165,5 +179,38 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    (() => {
+      const form = document.querySelector('form');
+      const emailInput = document.getElementById('email');
+      const errorEl = document.getElementById('email-error');
+      if (!form || !emailInput || !errorEl) return;
+
+      const blocked = [
+        'gmail.com', 'googlemail.com', 'yahoo.com', 'yahoo.co.uk', 'hotmail.com',
+        'outlook.com', 'outlook.sa', 'live.com', 'msn.com', 'aol.com', 'icloud.com',
+        'me.com', 'mail.com', 'gmx.com', 'yandex.com', 'proton.me', 'protonmail.com',
+        'zoho.com', 'ya.ru', 'qq.com', '126.com', '163.com'
+      ];
+
+      const isBusinessEmail = (email) => {
+        const parts = email.split('@');
+        if (parts.length !== 2) return false;
+        const domain = parts[1].toLowerCase();
+        return domain.includes('.') && !blocked.some((b) => domain === b || domain.endsWith('.' + b));
+      };
+
+      form.addEventListener('submit', (e) => {
+        const email = emailInput.value.trim();
+        if (!isBusinessEmail(email)) {
+          e.preventDefault();
+          errorEl.hidden = false;
+          emailInput.focus();
+          return;
+        }
+        errorEl.hidden = true;
+      });
+    })();
+  </script>
 </body>
 </html>
