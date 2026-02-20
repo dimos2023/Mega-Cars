@@ -24,6 +24,7 @@ body {
   background: #05060a;
   line-height: 1.6;
   position: relative;
+  overflow-x: hidden;
 }
 
 main section {
@@ -973,8 +974,10 @@ input[type='radio'] {
   .primary-nav {
     display: none;
     position: absolute;
+    left: 16px;
     right: 16px;
-    top: 68px;
+    top: calc(100% + 10px);
+    width: auto;
     background: rgba(10, 12, 16, 0.9);
     padding: 14px;
     border: 1px solid var(--line);
@@ -995,6 +998,14 @@ input[type='radio'] {
   .logo {
     letter-spacing: 0.45rem;
     text-indent: 0.45rem;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  body.nav-open {
+    overflow: hidden;
   }
 
   .hero {
@@ -1458,6 +1469,69 @@ input[type='radio'] {
 
   .login-card {
     width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --pad: 14px;
+    --shell: 100%;
+  }
+
+  .site-header {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .header-actions .pill-link,
+  .header-actions .subscribe-cta {
+    flex: 1 1 calc(50% - 6px);
+    text-align: center;
+    padding: 10px 12px;
+  }
+
+  .menu-toggle {
+    margin-left: auto;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .model-grid,
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .btn,
+  .intro-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-controls {
+    position: static;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
   }
 }
 

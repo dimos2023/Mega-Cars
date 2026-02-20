@@ -270,3 +270,41 @@ a {
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 640px) {
+  :root {
+    --pad: 14px;
+  }
+
+  .td-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .td-layout {
+    gap: 16px;
+  }
+
+  .td-viewer,
+  .td-panel {
+    padding: 14px;
+  }
+
+  .td-stage {
+    aspect-ratio: 4 / 3;
+  }
+
+  .td-thumb-row {
+    grid-auto-columns: minmax(72px, 1fr);
+    gap: 8px;
+  }
+
+  .td-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
