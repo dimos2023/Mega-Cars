@@ -12,9 +12,9 @@
 <body>
   <header class="td-header">
     <div class="td-shell td-topbar">
-      <a class="td-back" href="index.html">&#8592; Back to models</a>
+      <a class="td-back" href="index.php">&#8592; Back to models</a>
       <div class="td-logo">QUANTUM MOTORS</div>
-      <a class="btn primary" href="register.html">Register now</a>
+      <a class="btn primary" href="register.php">Register now</a>
     </div>
   </header>
 
@@ -25,7 +25,7 @@
           <img id="hero-frame" src="" alt="Model view">
           <div class="td-overlay">
             <span id="frame-hint">Click & drag or move cursor to rotate</span>
-            <button class="td-play" id="play-toggle" aria-label="Toggle animation">▶</button>
+            <button class="td-play" id="play-toggle" aria-label="Toggle animation">&#9654;</button>
           </div>
         </div>
         <div class="td-thumb-row" id="thumb-row"></div>
@@ -37,7 +37,7 @@
         <p class="td-lede" id="model-copy"></p>
         <div class="td-specs" id="model-stats"></div>
         <div class="td-actions">
-          <a class="btn primary" href="register.html">Book test drive</a>
+          <a class="btn primary" href="register.php">Book test drive</a>
           <a class="btn ghost" id="open-detail" href="#">Open detail</a>
         </div>
         <div class="td-switch">

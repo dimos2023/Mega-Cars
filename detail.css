@@ -2,6 +2,7 @@
   --ink: #0c0d0f;
   --muted: #5b6067;
   --line: #e0e2e7;
+  --accent: #d4af37;
   --radius: 14px;
   --shell: min(1280px, 100% - 32px);
   --pad: clamp(12px, 3vw, 28px);
@@ -61,7 +62,7 @@ header {
 }
 
 .back-link {
-  color: #ff3b30;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -140,7 +141,7 @@ main {
 }
 
 .thumb.is-active {
-  border-color: #c8102e;
+  border-color: var(--accent);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.22);
 }
 
@@ -219,7 +220,7 @@ main {
 }
 
 .btn.primary {
-  background: #c8102e;
+  background: var(--accent);
   color: #fff;
 }
 
@@ -432,7 +433,7 @@ main {
   height: 56px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: #c8102e;
+  background: var(--accent);
   color: #fff;
   display: grid;
   place-items: center;
@@ -505,7 +506,7 @@ main {
 }
 
 .chatbot-msg.user {
-  background: #c8102e;
+  background: var(--accent);
   color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.1);
   justify-self: end;
@@ -533,7 +534,7 @@ main {
   padding: 10px 14px;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  background: #c8102e;
+  background: var(--accent);
   color: #fff;
   font-weight: 700;
   cursor: pointer;

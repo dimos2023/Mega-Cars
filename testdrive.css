@@ -1,7 +1,7 @@
 :root {
   --ink: #f4f6fb;
   --muted: #c4c8d2;
-  --accent: #c8102e;
+  --accent: #d4af37;
   --card: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.14);
   --shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
@@ -57,7 +57,7 @@ a {
 }
 
 .td-back {
-  color: #ff3b30;
+  color: var(--accent);
   font-weight: 700;
 }
 
@@ -137,7 +137,7 @@ a {
 }
 
 .td-play.is-playing {
-  background: rgba(200, 16, 46, 0.8);
+  background: rgba(212, 175, 55, 0.8);
   border-color: rgba(255, 255, 255, 0.35);
 }
 
@@ -237,7 +237,7 @@ a {
 .btn.primary {
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 16px 40px rgba(200, 16, 46, 0.4);
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.4);
 }
 
 .btn.ghost {

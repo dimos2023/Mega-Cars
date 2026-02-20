@@ -3,7 +3,7 @@ const privetModels = [
     id: 'MAEXTRO S800',
     name: 'MAEXTRO S800',
     lede: 'Flagship electric grand tourer engineered for serene, long-range authority.',
-    detail: 'maextro-s800.html',
+    detail: 'maextro-s800.php',
     gallery: [
       'Image/MAEXTRO%20S800/2.png',
       'Image/MAEXTRO%20S800/3.png',
@@ -23,7 +23,7 @@ const privetModels = [
     id: 'YANGWANG U9',
     name: 'YANGWANG U9',
     lede: 'Electric hypercar with quad-motor precision and arresting aero drama.',
-    detail: 'yangwang-u9.html',
+    detail: 'yangwang-u9.php',
     gallery: [
       'Image/YANGWANG%20U9/1.png',
       'Image/YANGWANG%20U9/2.png',
@@ -43,7 +43,7 @@ const privetModels = [
     id: 'YANGWANG U8L',
     name: 'YANGWANG U8L',
     lede: 'Luxury off-road SUV with electric drive, range extender calm, and 7-seat presence.',
-    detail: 'yangwang-u8l.html',
+    detail: 'yangwang-u8l.php',
     gallery: [
       'Image/YANGWANG%20U8L/1.png',
       'Image/YANGWANG%20U8L/2.png',

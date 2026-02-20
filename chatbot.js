@@ -113,7 +113,7 @@
     }
   };
 
-  const contactInfo = 'For concierge support: email hello@quantum-motors.example or use register.html.';
+const contactInfo = 'For concierge support: email hello@quantum-motors.example or use register.php.';
 
   const makeEl = (tag, className, text) => {
     const el = document.createElement(tag);

@@ -16,9 +16,9 @@ const models = [
     tagline: 'Flagship electric sedan with grand-touring comfort.',
     blurb: 'Long-range battery, lounge-grade cabin, and adaptive air ride built for the region.',
     price: '0',
-    heroImage: 'Image/MAEXTRO%20S800/2.png',
-    cardImage: 'Image/MAEXTRO%20S800/2.png',
-    detailLink: 'maextro-s800.html',
+    heroImage: 'Image/MAEXTRO%20S800/2.png?v=2',
+    cardImage: 'Image/MAEXTRO%20S800/2.png?v=2',
+    detailLink: 'maextro-s800.php',
     gallery: [
       'Image/MAEXTRO%20S800/3.png',
       'Image/MAEXTRO%20S800/4.png',
@@ -40,7 +40,7 @@ const models = [
       'Image/MAEXTRO%20S800/20.png'
     ],
     buildLink: '#configure-s800',
-    driveLink: 'testdrive.html?id=maextro-s800',
+    driveLink: 'testdrive.php?id=maextro-s800',
     stats: [
       { label: '0-100 km/h', value: '3.4 s' },
       { label: 'Range', value: 'Up to 750 km' },
@@ -56,7 +56,7 @@ const models = [
     price: '0',
     heroImage: 'Image/YANGWANG%20U9/1.png',
     cardImage: 'Image/YANGWANG%20U9/2.png',
-    detailLink: 'yangwang-u9.html',
+    detailLink: 'yangwang-u9.php',
     gallery: [
       'Image/YANGWANG%20U9/3.png',
       'Image/YANGWANG%20U9/4.png',
@@ -65,7 +65,7 @@ const models = [
       'Image/YANGWANG%20U9/7.png'
     ],
     buildLink: '#configure-u9',
-    driveLink: 'testdrive.html?id=yangwang-u9',
+    driveLink: 'testdrive.php?id=yangwang-u9',
     stats: [
       { label: '0-100 km/h', value: '2.0 s' },
       { label: 'Power', value: '1,300 hp (est.)' },
@@ -81,7 +81,7 @@ const models = [
     price: '0',
     heroImage: 'Image/YANGWANG%20U8L/1.png',
     cardImage: 'Image/YANGWANG%20U8L/2.png',
-    detailLink: 'yangwang-u8l.html',
+    detailLink: 'yangwang-u8l.php',
     gallery: [
       'Image/YANGWANG%20U8L/3.png',
       'Image/YANGWANG%20U8L/4.png',
@@ -94,7 +94,7 @@ const models = [
       'Image/YANGWANG%20U8L/11.png'
     ],
     buildLink: '#configure-u8l',
-    driveLink: 'testdrive.html?id=yangwang-u8l',
+    driveLink: 'testdrive.php?id=yangwang-u8l',
     stats: [
       { label: '0-100 km/h', value: '3.6 s' },
       { label: 'Drive', value: 'E-AWD' },
@@ -339,7 +339,7 @@ const enhanceUserNav = () => {
   document.querySelectorAll('.primary-nav').forEach((nav) => {
     if (!nav.querySelector('.nav-privet')) {
       const link = document.createElement('a');
-      link.href = 'privet-space.html';
+    link.href = 'privet-space.php';
       link.className = 'nav-privet';
       link.textContent = 'Private Space';
       nav.prepend(link);
@@ -374,10 +374,6 @@ const createPromoModal = () => {
   closeBtn.setAttribute('aria-label', 'إغلاق العرض');
   closeBtn.textContent = '×';
 
-  const eyebrow = document.createElement('p');
-  eyebrow.className = 'eyebrow';
-  eyebrow.textContent = 'EXCLUSIVE OFFER';
-
   const title = document.createElement('h3');
   title.id = 'promo-title';
   title.textContent = 'QUANTUM MOTORS';
@@ -385,13 +381,13 @@ const createPromoModal = () => {
   const copy = document.createElement('p');
   copy.id = 'promo-copy';
   copy.className = 'promo-copy';
-  copy.textContent = 'Order your car now and unlock exclusive offers for the first 5 buyers only.';
+  copy.textContent = 'Build your car now and unlock exclusive offers for the first 5 buyers only.';
 
   const actions = document.createElement('div');
   actions.className = 'promo-actions';
 
   const cta = document.createElement('a');
-  cta.href = 'register.html';
+  cta.href = 'register.php';
   cta.className = 'btn primary';
   cta.textContent = 'Register now';
 
@@ -401,7 +397,7 @@ const createPromoModal = () => {
   dismiss.textContent = 'Exit';
 
   actions.append(cta, dismiss);
-  modal.append(closeBtn, eyebrow, title, copy, actions);
+  modal.append(closeBtn, title, copy, actions);
   backdrop.appendChild(modal);
   document.body.appendChild(backdrop);
 
@@ -418,12 +414,13 @@ const createPromoModal = () => {
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  const path = window.location.pathname.toLowerCase();
-  const isHome =
-    path.endsWith('index.html') ||
-    path === '/' ||
-    path === '' ||
-    path.endsWith('/index');
+const path = window.location.pathname.toLowerCase();
+const isHome =
+  path.endsWith('index.html') ||
+  path.endsWith('index.php') ||
+  path === '/' ||
+  path === '' ||
+  path.endsWith('/index');
   if (!isHome) return;
   setTimeout(() => {
     createPromoModal();

@@ -3,7 +3,7 @@ const models3d = [
     id: 'maextro-s800',
     name: 'MAEXTRO S800',
     copy: 'Flagship electric sedan reimagined with an immersive, lounge-grade cabin and adaptive air ride.',
-    detailLink: 'maextro-s800.html',
+    detailLink: 'maextro-s800.php',
     gallery: [
       'Image/MAEXTRO%20S800/2.png',
       'Image/MAEXTRO%20S800/3.png',
@@ -23,7 +23,7 @@ const models3d = [
     id: 'yangwang-u9',
     name: 'YANGWANG U9',
     copy: 'Electric hypercar with quad-motor torque vectoring, sculpted for track precision.',
-    detailLink: 'yangwang-u9.html',
+    detailLink: 'yangwang-u9.php',
     gallery: [
       'Image/YANGWANG%20U9/1.png',
       'Image/YANGWANG%20U9/2.png',
@@ -43,7 +43,7 @@ const models3d = [
     id: 'yangwang-u8l',
     name: 'YANGWANG U8L',
     copy: 'Luxury off-road SUV with electric drive, range extender confidence, and seven-seat space.',
-    detailLink: 'yangwang-u8l.html',
+    detailLink: 'yangwang-u8l.php',
     gallery: [
       'Image/YANGWANG%20U8L/1.png',
       'Image/YANGWANG%20U8L/2.png',

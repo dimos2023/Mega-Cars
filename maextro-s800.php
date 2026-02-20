@@ -10,7 +10,7 @@
 <body>
   <header>
     <div class="shell topbar">
-      <a class="back-link" href="index.html">&larr; Back to models</a>
+      <a class="back-link" href="index.php">&larr; Back to models</a>
       <div class="logo">QUANTUM MOTORS</div>
     </div>
   </header>
